@@ -205,3 +205,9 @@ and update the index view:
       @endforeach
 @endsection
 ```
+
+create new branch:
+Marian
+`git co -b responsive-tag`
+Justice
+`git co -b summary`
