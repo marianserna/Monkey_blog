@@ -211,3 +211,7 @@ Marian
 `git co -b responsive-tag`
 Justice
 `git co -b summary`
+
+Get back to master branch:
+`git co master`
+`git pull` to bring changes made in other branches
