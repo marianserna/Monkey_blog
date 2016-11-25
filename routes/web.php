@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', 'PostController', ['only' => ['index', 'show']]);
+Route::resource('users', 'UserController');
 
 Auth::routes();
 

@@ -59,6 +59,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @if(Auth::user()->is_admin)
+                                      <li>
+                                        <a href="{{ route('users.index')}}">Manage Users</a>
+                                      </li>
+                                    @endif
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -77,8 +82,14 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+          @if(Session::has('flash_message'))
+            <div class="alert alert-success">
+              {{Session::get('flash_message')}}
+            </div>
+          @endif
+          @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
