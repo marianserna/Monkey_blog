@@ -10,4 +10,8 @@ class Post extends Model
       'title', 'summary', 'image_file_name',
       'body', 'user_id', 'status', 'published_at'
     ];
+
+    public function user() {
+      return $this->belongsTo('App\User');
+    }
 }

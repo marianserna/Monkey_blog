@@ -64,6 +64,11 @@
                                         <a href="{{ route('users.index')}}">Manage Users</a>
                                       </li>
                                     @endif
+                                    @if(Auth::user()->is_admin || Auth::user()->is_editor() || Auth::user()->is_author())
+                                      <li>
+                                        <a href="{{ route('admin.posts.index')}}">Manage Posts</a>
+                                      </li>
+                                    @endif
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
