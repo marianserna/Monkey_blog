@@ -3,6 +3,11 @@
 
 @section('content')
     <h1>Listing posts</h1>
+
+    @if(Auth::user()->is_author)
+      <a href="{{route('admin.posts.create')}}" class="btn btn-default">New Post</a>
+    @endif
+
     <table class="table">
       <tr>
         <th>ID</th>
@@ -21,7 +26,7 @@
               <a href="{{route('admin.posts.edit', ['post' => $post])}}" class="btn btn-default">
                 Edit
               </a>
-              
+
           </td>
         </tr>
       @endforeach

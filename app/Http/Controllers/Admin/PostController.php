@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use \Auth;
 use \Session;
 
 class PostController extends Controller
@@ -28,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+      $post = new Post();
+      return view('admin.posts.create', ['post' => $post]);
     }
 
     /**
@@ -39,7 +41,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $this->validate($request, [
+        'title' => 'required',
+        'summary' => 'required',
+        'body' => 'required',
+      ]);
+
+      $input = $request->all();
+      $post = new Post($input);
+      $post->status = 'draft';
+      $post->user_id = Auth::user()->id;
+      $post->save();
+
+      Session::flash('flash_message','A new post has been created');
+
+      return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -102,7 +119,6 @@ class PostController extends Controller
         $post->save();
 
         Session::flash('flash_message','The post has been rejected');
-
         return redirect()->route('admin.posts.index');
       }
       /**
@@ -136,9 +152,7 @@ class PostController extends Controller
 
       $input = $request->all();
       $post->fill($input)->save();
-
       Session::flash('flash_message','The post has been updated');
-
       return redirect()->route('admin.posts.index');
     }
 
@@ -150,6 +164,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Post::destroy($id);
+      Session::flash('flash_message','The post has been deleted');
+      return redirect()->route('admin.posts.index');
     }
 }
