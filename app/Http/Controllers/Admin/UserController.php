@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\User;
 use Session;
 
@@ -16,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index', ['users'=>$users]);
+        return view('admin.users.index', ['users'=>$users]);
     }
 
     /**
@@ -60,7 +61,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit',['user' => $user]);
+        return view('admin.users.edit',['user' => $user]);
     }
 
     /**
@@ -84,7 +85,7 @@ class UserController extends Controller
 
         Session::flash('flash_message','User has been updated');
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**

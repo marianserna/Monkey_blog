@@ -20,7 +20,7 @@
           <td>{{$user->is_editor ? 'Yes' : 'No'}}</td>
           <td>{{$user->is_author ? 'Yes' : 'No'}}</td>
           <td>
-              <a href="{{route('users.edit', ['user' => $user])}}" class="btn btn-default">
+              <a href="{{route('admin.users.edit', ['user' => $user])}}" class="btn btn-default">
                 Edit
               </a>
           </td>

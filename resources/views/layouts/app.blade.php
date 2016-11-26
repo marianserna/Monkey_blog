@@ -61,7 +61,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     @if(Auth::user()->is_admin)
                                       <li>
-                                        <a href="{{ route('users.index')}}">Manage Users</a>
+                                        <a href="{{ route('admin.users.index')}}">Manage Users</a>
                                       </li>
                                     @endif
                                     @if(Auth::user()->is_admin || Auth::user()->is_editor || Auth::user()->is_author)
