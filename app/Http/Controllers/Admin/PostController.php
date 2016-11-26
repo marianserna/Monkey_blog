@@ -17,8 +17,23 @@ class PostController extends Controller
      */
     public function index()
     {
-      // do eager loading for optimization (rather than ::all())
-      $posts = Post::with('user')->get();
+
+      $scope = Post::with('user');
+
+      if (Auth::user()->is_admin) {
+       // nothing
+      } else if (Auth::user()->is_editor && Auth::user()->is_author) {
+
+      $scope = $scope->where('user_id', Auth::user()->id)
+        ->orWhereIn('status', ['submitted', 'published', 'rejected']);
+      } else if (Auth::user()->is_editor) {
+        $scope = $scope->whereIn('status', ['submitted', 'published', 'rejected']);
+      } else if (Auth::user()->is_author) {
+        $scope = $scope->where('user_id', Auth::user()->id);
+      }
+
+      $posts = $scope->get();
+
       return view('admin.posts.index', ['posts' => $posts]);
     }
 

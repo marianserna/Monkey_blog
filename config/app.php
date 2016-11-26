@@ -168,6 +168,7 @@ return [
          */
          Collective\Html\HtmlServiceProvider::class,
          Codesleeve\LaravelStapler\Providers\L5ServiceProvider::class,
+         Barryvdh\Debugbar\ServiceProvider::class,
         //
 
         /*
