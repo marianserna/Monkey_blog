@@ -21,7 +21,7 @@
 
   <hr>
 
-  {{ Form::model($post, ['route' => ['admin.posts.update', $post->id], 'method' => 'put']) }}
+  {{ Form::model($post, ['route' => ['admin.posts.update', $post->id], 'method' => 'put', 'files' => true]) }}
     <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
       {{ Form::label('title', 'Title') }}
       {{ Form::text('title', null, ['class' => 'form-control', 'required' => true]) }}
@@ -42,6 +42,15 @@
               <strong>{{ $errors->first('summary') }}</strong>
           </span>
       @endif
+    </div>
+
+    <div class="form-group">
+      <img src="{{$post->image->url('medium')}}"/>
+    </div>
+
+    <div class="form-group">
+      {{ Form::label('image', 'Image') }}
+      {{ Form::file('image') }}
     </div>
 
     <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }}">
