@@ -17,7 +17,7 @@ Route::resource('posts', 'PostController', ['only' => ['index', 'show']]);
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => ['auth']], function() {
   Route::resource('users', 'UserController');
   Route::resource('posts', 'PostController');
   Route::get('/posts/{post}/submit', 'PostController@submit')->name('posts.submit');
