@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+const Masonry = require('masonry-layout');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,3 +19,11 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+const grid = document.querySelector('.grid');
+if (grid) {
+  const msnry = new Masonry(grid, {
+    itemSelector: '.grid-item',
+    percentPosition: true
+  });
+}
