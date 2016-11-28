@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- An app by Marian Serna & Justice Ampofo -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Monkey Blog') }}</title>
+    <title>{{ config('app.name', 'Monkey Magazine') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Monkey Blog
+                        Monkey Magazine
                     </a>
                 </div>
 
@@ -50,7 +50,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ route('posts.index') }}">Posts</a></li>
-                        <li><a href="#" class="day-night">Day Mode</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
@@ -62,6 +61,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" class="day-night">Day Mode</a></li>
                                     @if(Auth::user()->is_admin)
                                       <li>
                                         <a href="{{ route('admin.users.index')}}">Manage Users</a>

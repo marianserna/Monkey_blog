@@ -7,7 +7,7 @@
     <div class="background-image"></div>
     <div class="logo-container">
       <img src="/images/monkey.svg" class="animated bounceInDown">
-      <h1 class="animated zoomIn">MONKEY BLOG</h1>
+      <h1 class="animated zoomIn">MONKEY MAGAZINE</h1>
     </div>
 
   </header>
