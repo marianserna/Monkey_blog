@@ -1,0 +1,8 @@
+@mixin image-gradient($opacity, $url) {
+  background-image:
+  linear-gradient(
+    rgba(0, 0, 0, $opacity),
+    rgba(0, 0, 0, $opacity)
+  ),
+  url($url);
+}

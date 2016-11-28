@@ -2,6 +2,7 @@
 @section('title', 'Posts')
 
 @section('content')
+  <div class="container">
     <h1>Listing users</h1>
     <table class="table">
       <tr>
@@ -27,4 +28,5 @@
         </tr>
       @endforeach
     </table>
+  </div>
 @endsection

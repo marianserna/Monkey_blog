@@ -1,17 +1,16 @@
 @extends('layouts.app')
+@section('title', 'Monkey Blog')
+@section('page-class', 'home')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+  <header>
+    <div class="background-image"></div>
+    <div class="logo-container">
+      <img src="/images/monkey.svg" class="animated bounceInDown">
+      <h1 class="animated zoomIn">MONKEY BLOG</h1>
     </div>
-</div>
+
+  </header>
+
+  @include('posts.latest')
 @endsection

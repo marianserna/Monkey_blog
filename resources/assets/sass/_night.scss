@@ -1,0 +1,14 @@
+$night-text-color: #CFD8DC;
+
+body.night {
+  background: #212121;
+  color: $night-text-color;
+
+  .navbar-default {
+    background-color: #212121;
+
+    .navbar-nav > li > a {
+      color: $night-text-color
+    }
+  }
+}
