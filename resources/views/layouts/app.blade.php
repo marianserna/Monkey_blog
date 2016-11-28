@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Monkey Blog') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- Scripts -->
     <script>
@@ -20,7 +21,7 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body class="@yield('page-class')">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -36,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Monkey Blog
                     </a>
                 </div>
 
@@ -48,6 +49,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ route('posts.index') }}">Posts</a></li>
+                        <li><a href="#" class="day-night">Day Mode</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
@@ -87,7 +90,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="container-fluid">
           @if(Session::has('flash_message'))
             <div class="alert alert-success">
               {{Session::get('flash_message')}}

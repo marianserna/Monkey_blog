@@ -42,5 +42,5 @@
   @endif
 </div>
 
-<button type="submit" title="btn btn-default">Save</button>
+<button type="submit" class="btn btn-default">Save</button>
 <a href="{{ route('admin.posts.index') }}">Cancel</a>

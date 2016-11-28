@@ -19,7 +19,7 @@ class Post extends Model implements StaplerableInterface
        $this->hasAttachedFile('image', [
            'styles' => [
               'hero' => '1440',
-              'medium' => '300x300#'
+              'medium' => '500x500#'
            ]
        ]);
 
