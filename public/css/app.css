@@ -7851,4 +7851,17 @@ button.close {
   padding-bottom: 100px;
 }
 
+body.night {
+  background: #212121;
+  color: #CFD8DC;
+}
+
+body.night .navbar-default {
+  background-color: #212121;
+}
+
+body.night .navbar-default .navbar-nav > li > a {
+  color: #CFD8DC;
+}
+
 /*# sourceMappingURL=app.css.map */

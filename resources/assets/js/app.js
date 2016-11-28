@@ -27,3 +27,41 @@ if (grid) {
     percentPosition: true
   });
 }
+
+let DisplayMode = {
+  mode: localStorage.getItem('mode') || 'Day Mode'
+};
+
+
+DisplayMode.listenToggle = function() {
+
+  var dayNight = document.querySelector('.day-night');
+
+  dayNight.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (this.mode === 'Day Mode') {
+      this.mode = 'Night Mode';
+    } else {
+      this.mode = 'Day Mode';
+    }
+    localStorage.setItem('mode', this.mode);
+    this.updateDisplay();
+  }.bind(this));
+}
+DisplayMode.listenToggle();
+
+DisplayMode.updateDisplay = function() {
+
+  var dayNight = document.querySelector('.day-night');
+  dayNight.innerHTML = this.mode;
+
+  var body = document.querySelector('body');
+  if (this.mode === 'Day Mode') {
+    body.classList.remove('night');
+    body.classList.add('day');
+  } else {
+    body.classList.remove('day');
+    body.classList.add('night');
+  }
+}
+DisplayMode.updateDisplay();
