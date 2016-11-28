@@ -1929,36 +1929,36 @@ pre code {
   overflow-y: scroll;
 }
 
-.container {
+.container, .latest-posts {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.container:before, .container:after {
+.container:before, .latest-posts:before, .container:after, .latest-posts:after {
   content: " ";
   display: table;
 }
 
-.container:after {
+.container:after, .latest-posts:after {
   clear: both;
 }
 
 @media (min-width: 768px) {
-  .container {
+  .container, .latest-posts {
     width: 750px;
   }
 }
 
 @media (min-width: 992px) {
-  .container {
+  .container, .latest-posts {
     width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
-  .container {
+  .container, .latest-posts {
     width: 1170px;
   }
 }
@@ -4848,8 +4848,8 @@ tbody.collapse.in {
   }
 }
 
-.container > .navbar-header,
-.container > .navbar-collapse,
+.container > .navbar-header, .latest-posts > .navbar-header,
+.container > .navbar-collapse, .latest-posts > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
@@ -4857,8 +4857,8 @@ tbody.collapse.in {
 }
 
 @media (min-width: 768px) {
-  .container > .navbar-header,
-  .container > .navbar-collapse,
+  .container > .navbar-header, .latest-posts > .navbar-header,
+  .container > .navbar-collapse, .latest-posts > .navbar-collapse,
   .container-fluid > .navbar-header,
   .container-fluid > .navbar-collapse {
     margin-right: 0;
@@ -4920,7 +4920,7 @@ tbody.collapse.in {
 }
 
 @media (min-width: 768px) {
-  .navbar > .container .navbar-brand,
+  .navbar > .container .navbar-brand, .navbar > .latest-posts .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
   }
@@ -5684,14 +5684,14 @@ a.badge:hover, a.badge:focus {
   border-top-color: #d5d5d5;
 }
 
-.container .jumbotron,
+.container .jumbotron, .latest-posts .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.jumbotron .container {
+.jumbotron .container, .jumbotron .latest-posts {
   max-width: 100%;
 }
 
@@ -5700,7 +5700,7 @@ a.badge:hover, a.badge:focus {
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  .container .jumbotron,
+  .container .jumbotron, .latest-posts .jumbotron,
   .container-fluid .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
@@ -7699,6 +7699,156 @@ button.close {
 .grid h2, .grid p {
   padding-left: 15px;
   padding-bottom: 15px;
+}
+
+.latest-posts {
+  padding-bottom: 15px;
+}
+
+.latest-posts h3 {
+  position: relative;
+  font-size: 1.5rem;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+}
+
+.latest-posts h3:before, .latest-posts h3:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 48%;
+  height: 1px;
+  content: '\a0';
+  background-color: #E0E0E0;
+}
+
+.latest-posts h3:before {
+  margin-left: -50%;
+  text-align: right;
+}
+
+.latest-posts h3:after {
+  margin-left: 2%;
+}
+
+.home-posts {
+  display: -webkit-box;
+  display: flex;
+}
+
+.home-post {
+  display: -webkit-box;
+  display: flex;
+  width: 33%;
+}
+
+.home-post:hover {
+  text-decoration: none;
+}
+
+.home-post .post-image {
+  width: 25%;
+}
+
+.home-post .post-image img {
+  width: 100%;
+}
+
+.home-post .post-info {
+  width: 75%;
+  padding: 10px;
+  text-align: center;
+}
+
+.home-post .post-info:hover {
+  text-shadow: 2px 1px #E0E0E0;
+}
+
+.home-post .post-info h4, .home-post .post-info p {
+  color: #26C6DA;
+  font-size: 1.8rem;
+}
+
+.home-post .post-info h4 {
+  font-weight: bold;
+}
+
+.home-post .post-info p {
+  font-size: 1.2rem;
+}
+
+.home nav {
+  margin: 0px;
+}
+
+.home .container-fluid {
+  padding: 0px;
+}
+
+.home header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  height: calc(75vh - 50px);
+}
+
+.home .logo-container {
+  text-align: center;
+  width: 100%;
+}
+
+.home .logo-container img {
+  width: 150px;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.home .logo-container h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.home .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/palmTree.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/palmTree.jpg");
+}
+
+.posts-show .container-fluid {
+  padding: 0px;
+}
+
+.posts-show .post-header {
+  text-align: center;
+}
+
+.posts-show .post-hero-image {
+  height: 65vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 60px 0px;
+}
+
+.posts-show .post-body {
+  width: 50vw;
+  line-height: 2rem;
+  padding-bottom: 100px;
 }
 
 /*# sourceMappingURL=app.css.map */

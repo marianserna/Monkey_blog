@@ -29,6 +29,9 @@ class PostController extends Controller
     public function show($id)
     {
       $post = Post::find($id);
-      return view('posts.show', ['post' => $post]);
+      return view('posts.show', [
+        'post' => $post,
+        'latest_posts' => $this->latest_posts()
+      ]);
     }
 }

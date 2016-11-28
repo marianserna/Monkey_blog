@@ -10,4 +10,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function latest_posts() {
+      return \App\Post::orderBy('id', 'desc')
+        ->where('status', 'published')
+        ->limit(3)
+        ->get();
+    }
 }
