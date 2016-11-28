@@ -7701,6 +7701,14 @@ button.close {
   padding-bottom: 15px;
 }
 
+@media (max-width: 650px) {
+  .grid .grid-item {
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fff;
+  }
+}
+
 .latest-posts {
   padding-bottom: 15px;
 }
@@ -7761,13 +7769,13 @@ button.close {
   text-align: center;
 }
 
-.home-post .post-info:hover {
-  text-shadow: 2px 1px #E0E0E0;
-}
-
 .home-post .post-info h4, .home-post .post-info p {
   color: #26C6DA;
   font-size: 1.8rem;
+}
+
+.home-post .post-info h4:hover, .home-post .post-info p:hover {
+  color: #F50057;
 }
 
 .home-post .post-info h4 {
@@ -7776,6 +7784,20 @@ button.close {
 
 .home-post .post-info p {
   font-size: 1.2rem;
+}
+
+@media (max-width: 650px) {
+  .home-posts {
+    display: block;
+  }
+  .home-posts .home-post {
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fff;
+  }
+  .post-image img {
+    padding-bottom: 15px;
+  }
 }
 
 .home nav {
@@ -7847,8 +7869,15 @@ button.close {
 
 .posts-show .post-body {
   width: 50vw;
-  line-height: 2rem;
+  line-height: 2.5rem;
   padding-bottom: 100px;
+}
+
+@media (max-width: 650px) {
+  .posts-show .post-body {
+    margin: 0 auto;
+    width: 70vw;
+  }
 }
 
 body.night {

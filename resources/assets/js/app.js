@@ -53,13 +53,14 @@ DisplayMode.listenToggle();
 DisplayMode.updateDisplay = function() {
 
   var dayNight = document.querySelector('.day-night');
-  dayNight.innerHTML = this.mode;
 
   var body = document.querySelector('body');
   if (this.mode === 'Day Mode') {
+    dayNight.innerHTML = 'Night Mode';
     body.classList.remove('night');
     body.classList.add('day');
   } else {
+    dayNight.innerHTML = 'Day Mode';
     body.classList.remove('day');
     body.classList.add('night');
   }
