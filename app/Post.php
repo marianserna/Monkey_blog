@@ -20,7 +20,16 @@ class Post extends Model implements StaplerableInterface
            'styles' => [
               'hero' => '1440',
               'medium' => '500x500#'
-           ]
+           ],
+           'storage' => ENV('STAPLER_STORAGE', 'filesystem'),
+            's3_client_config' => [
+                'key' => ENV('AWS_S3_KEY', ''),
+                'secret' => ENV('AWS_S3_SECRET', ''),
+                'region' => ''
+            ],
+            's3_object_config' => [
+                'Bucket' => 'monkey-mag'
+            ],
        ]);
 
        parent::__construct($attributes);
