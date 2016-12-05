@@ -15,7 +15,6 @@ class PostController extends Controller
     public function index()
     {
       $posts = Post::where('status', 'published')->get();
-      // view function: 1st parameter is the name of the view, the 2nd thing is the variable you're making available to the view
       return view('posts.index', ['posts' => $posts]);
     }
 
