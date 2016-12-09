@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- An app by Marian Serna & Justice Ampofo -->
+{{-- Gracious thanks to flaticon.com for the free monkey icon (http://www.flaticon.com/free-icon/chimp-face-of-brazil_47247#term=monkey&page=1&position=9) --}}
+{{-- And to Flickr.com for the palm tree image! --}}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
